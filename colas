@@ -1,0 +1,86 @@
+public class Colas {
+
+    static int colas[];
+    static int first, last;
+    public static void creaCola(int N){
+        colas = new int [N];
+        
+    }
+    public static void inicializaCola(){
+        first= -1; last = -1;
+        
+    }
+    public static void inserta(int valor){
+        int indMax= colas.length-1;
+        
+        if (last<indMax){
+            last++;
+            colas[last]=valor;
+            if(first==-1)
+                first=0;
+            
+        }
+    }
+    
+    public static int elimina(){
+        int valor =0;
+        if (first >-1){
+            valor = colas[first];
+            first++;
+            if (first>last)
+            inicializaCola();
+        }
+        return valor;
+    }
+    
+    public static String recorreArreglo(){
+        String cadena="";
+        if (first>-1){
+        
+            for (int i=first; i<=last; i++)
+                 cadena = cadena + colas[i] + " ";
+    }
+            else cadena = "Cola sin elementos";
+            
+        return cadena;
+        
+    }
+    
+     public static int sumaCola (){
+    
+         int suma = 0;
+         for (int i=first; i<=last; i++){
+             suma  = suma + elimina();
+         }
+                
+        return suma;
+    }
+   
+        public static int sumaN(int N){
+        int suma = 0; int cont=0;
+         
+        while (cont < N && first >-1){
+            
+             suma  = suma + elimina();
+             cont = cont +1;
+         }
+                
+        return suma;
+    }
+            
+            
+    public static void main(String[] args) {
+        
+        int tamaño=6;
+        creaCola(tamaño);inicializaCola();
+        inserta(10);inserta(20);inserta(30);inserta(40); 
+        inserta(50);inserta(60);inserta(70);
+        
+        System.out.println(recorreArreglo());
+        elimina(); elimina();
+        System.out.println(recorreArreglo());
+       // System.out.println(sumaCola());
+       // System.out.println(recorreArreglo());
+        System.out.println(sumaN(1));
+        System.out.println(recorreArreglo());
+    }
