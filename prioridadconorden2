@@ -1,0 +1,51 @@
+public class Application28Marzo {
+
+     
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int A[]={10,20,5,12,8,40,7};
+        System.out.println(verArreglo(A));
+        A=burbuja(A);
+        System.out.println(verArreglo(A));
+        
+        int valor=Integer.parseInt(JOptionPane.showInputDialog("Ingrese un valor"));
+        System.out.println("Valor: "+valor);
+        int ind=busqSec(A, valor);
+        if(ind>-1)
+            System.out.println("encontrado En pos: "+ind);
+        else
+            System.out.println("No encontrado");
+    }
+    
+    public static int busqSec(int D[], int valor){
+        int indice=-1;int i=0;int indMax=D.length-1;
+        while(i<indMax && valor !=D[i])i=i+1;
+        if(valor==D[i])indice=i;
+        return indice;
+    }
+    
+    public static int[] burbuja(int D[]){
+       boolean ordenado=false;int indMax=D.length-1;
+       int aux;
+       while(ordenado==false){
+          ordenado=true;
+          for(int i=0;i< indMax;i++){
+              if(D[i]>D[i+1]){
+                  aux=D[i];
+                  D[i]=D[i+1];D[i+1]=aux;
+                  ordenado=false;
+          }
+                        
+          }
+          indMax=indMax-1;
+       }
+       return D;
+    }
+       
+       public static String verArreglo(int D[]){
+           String cadena=" "; int indMax=D.length-1;
+           for (int i=0; i<=indMax; i++)
+               cadena = cadena + D[i]+" ";
+           return cadena;
+                
+       }
