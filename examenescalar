@@ -1,0 +1,29 @@
+public class examen {
+
+    public static int subir(double metros, int dias){
+        metros-=3;
+        if (metros <=0){
+            return dias+1;
+     }
+    return subir(metros + 1.5, dias+1);
+ 
+}
+
+public static int escalar(double metros){
+int rpta;
+    metros-=3;
+        if(metros<=0){
+            rpta=1;}
+       else{
+        rpta= 1+ escalar(metros-1.5);
+}
+return rpta;
+
+}
+
+   public static void main(String[] args) {   
+
+System.out.println("Se demora en subir  :" + subir(12,0) + " dias");
+
+}
+
