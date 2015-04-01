@@ -1,0 +1,32 @@
+public class aplication1 {
+ 
+    
+
+
+
+
+    public static void main(String args[]){ 
+
+        // Creamos la cola de prioridad con orden
+                //descendente (el parametro false en el constructor)
+        Buffer prioridad = new PriorityBuffer(false);
+        prioridad.add(new Integer(1));
+        prioridad.add(new Integer(1));
+        prioridad.add(new Integer(1));
+        prioridad.add(new Integer(4));
+        prioridad.add(new Integer(1));
+        prioridad.add(new Integer(20));
+
+        Iterator priorityIterator = prioridad.iterator( );
+        while( priorityIterator.hasNext( ) ) {
+            Integer value = (Integer) priorityIterator.next();
+            System.out.println( "Valor: " + value );
+
+        }
+
+        System.out.println("-- -------------------");
+        while(prioridad.iterator().hasNext()){
+            Integer value = (Integer) prioridad.remove();
+            System.out.println( "Valor: " + value );
+        }
+    }
