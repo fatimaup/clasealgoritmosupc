@@ -1,0 +1,54 @@
+public class MainPila {
+    static int Pila[]; static int Tope;
+    
+    public static void creaPila(int N){
+        Pila = new int[N];
+        
+    }
+    
+    public static void inicializaPila(){
+        Tope = -1;
+        
+    }
+    
+    public static void inserta(int valor){
+        int indmax = Pila.length-1;
+        if(Tope<indmax){
+            Tope=Tope+1;
+            Pila[Tope]=valor;
+        }
+        
+    }
+    
+    public static int elimina(){
+        int valor=0;
+        if (Tope>-1){
+            valor =Pila[Tope];
+            Tope=Tope-1;
+            
+        }
+        return valor;
+    }
+    
+    public static String recorreArreglo(){
+        String cadena="";
+        if (Tope>-1){
+            for (int i=0; i<=Tope; i++)
+                cadena = cadena + Pila[i]+" ";
+            
+        }
+        return cadena;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int N=10;
+        creaPila(N);inicializaPila();
+        inserta(10);inserta(20); inserta(30); inserta(40);
+        System.out.println(recorreArreglo());
+        elimina();elimina();
+        System.out.println(recorreArreglo());
+    }
