@@ -1,0 +1,25 @@
+public class examen2 {
+    
+    public static void hospital(int day, int milig, int percent){
+        
+        double aux=0;
+        for (int i=0; i<day; i++){
+            aux=0.2+aux;
+            
+        }
+        aux = 1.0 * milig *(1-aux);
+        System.out.println("Despues de " + day + " Dias, tiene " + aux);
+        aux=0;
+        int porcen=percent;
+        while (percent>0){
+            percent-=20;
+            aux++;
+        }
+        System.out.println("Eliminará el "+ porcen + "%" + " despues de " + aux + " dias");
+    }
+    
+       public static void main(String[] args) {   
+
+    hospital( 7,  10,  70);
+    
+}
